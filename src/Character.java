@@ -11,33 +11,32 @@ public class Character {
 
 
     // randomly generates nationality for user
-    public void generateNationality(){
-        String[] genNationality = {"Mexico, Australia, Russia"};
+    public void generateNationality() {
+        String[] genNationality = { "Mexico", "Australia", "Russia" };
         int num = (int)(Math.random() * genNationality.length);
         nationality = genNationality[num];
-
     }
 
-    public void generateEthnicity(){
-        String[] genEthnicity = {"American, Spanish, Indian"};
+    public void generateEthnicity() {
+        String[] genEthnicity = { "American", "Spanish", "Indian" };
         int num = (int)(Math.random() * genEthnicity.length);
         ethnicity = genEthnicity[num];
-
     }
 
-    public String generateFamily(){
-        String [] motherName = {"Maria, Anna, Karen"};
-        String [] fatherName = {"John, Matthew, Raymond"};
-        String regex = " ";
-        String[] lastNameArray = name.split(regex);    // last name matches user's last name
-        String lastName = lastNameArray[1];
-        int num = (int)(Math.random() * motherName.length);
+    public String generateFamily() {
+        String[] motherName = { "Maria", "Anna", "Karen" };
+        String[] fatherName = { "John", "Matthew", "Raymond" };
+        
+        String[] lastNameArray = name.split(" ");
+        String lastName = lastNameArray.length > 1 ? lastNameArray[1] : ""; // Check if there's a last name
+
+        int numM = (int)(Math.random() * motherName.length);
         int numF = (int)(Math.random() * fatherName.length);
-        String mother = motherName[num] + lastName;
-        String father = fatherName[numF] + lastName;
+
+        String mother = motherName[numM] + " " + lastName;
+        String father = fatherName[numF] + " " + lastName;
 
         return "Your mother is " + mother + "\n" + "Your father is " + father;
-
     }
 
 
