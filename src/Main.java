@@ -12,12 +12,13 @@ public class Main {
         Scanner name = new Scanner(System.in);
         System.out.println("Please enter your FULL name: ");
         String rName = name.nextLine();
+
         Character person = new Character(rName);
         person.generateEthnicity();
         person.generateNationality();
-        person.generateFamily();
-        person.getDescription();
 
-
+        System.out.println(person.generateFamily());
+        System.out.println(person.getDescription());
+        System.out.println(person.generateReputation());
     }
 }
