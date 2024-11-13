@@ -45,11 +45,5 @@ public class Character {
         return "Your name is " + name + "\n" + "You live in " + nationality + "\n" + "Your parents are " + ethnicity;
     }
 
-    public String generateReputation(){
-        int num = (int)(Math.random() * 50 + 50);
-        return "Your reputation is at " + num + "%";
-    }
-
-
 
 }
