@@ -22,16 +22,20 @@ public class Main {
         System.out.println(person.getDescription());
 
         // childhood
-        System.out.println("As a child, you can interact with your parents or play by yourself");
-        Scanner childhood = new Scanner(System.in);
-        Activities user = new Activities();
-        for (int i = 0; i<5; i++) {
-            System.out.println("Press 1 to spend time with your mother");
-            System.out.println("Press 2 to spend time with your father");
-            System.out.println("Press 3 to play with toys by yourself");
-            int choice = Integer.parseInt(childhood.nextLine());
-            System.out.println(user.childhoodActivity(choice));
-        }
+            System.out.println("As a child, you can interact with your parents or play by yourself");
+            Scanner childhood = new Scanner(System.in);
+            Activities user = new Activities();
+            for (int i = 0; i < 5; i++) {
+                System.out.println("Type 'mom' to spend time with your mother");
+                System.out.println("Type 'dad' 2 to spend time with your father");
+                System.out.println("Type 'alone' to play with toys by yourself");
+                String choice = childhood.nextLine();
+                System.out.println(user.childhoodActivity(choice));
+            }
+
+            if(user.getAge() == 13){
+                System.out.println("You are now allowed to ");
+            }
 
 
 

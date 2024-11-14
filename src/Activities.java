@@ -1,55 +1,84 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Activities {
-    private int old;
+    private int age;
+    private int friends;
 
     public Activities(){
     }
 
+    public Activities(int age){
+        this.age = age;
+    }
 
-    public String childhoodActivity(int choice){
+    public int getAge(){
+        return age;
+    }
+
+    public String childhoodActivity(String choice){
         String year = " year";
 
-    if (choice == 1){
+    if (choice.equals("mom")){
         ArrayList<String> momResponse = new ArrayList<String>();
         momResponse.add("She takes a video of you playing and sends it in the family groupchat");
         momResponse.add("She's too tired to play with you");
         momResponse.add("She gives you her phone to play with");
-        old++;
-        if (old > 1){
+
+        age++;
+        if (age > 1){
             year = " years";
         }
-        return momResponse.get((int)(Math.random() * momResponse.size())) + "\n" + "You are now " + old + year + " old";
+        return momResponse.get((int)(Math.random() * momResponse.size())) + "\n" + "You are now " + age + year + " old";
     }
 
-    if (choice == 2){
+    if (choice.equals("dad")){
         ArrayList<String> dadResponse = new ArrayList<String>();
         dadResponse.add("He takes you to the store and buys you a toy");
         dadResponse.add("He's sleeping and doesn't hear you");
         dadResponse.add("He sits down and watches TV with you");
-        old++;
-        if (old > 1){
+        age++;
+        if (age > 1){
             year = " years";
         }
-        return dadResponse.get((int)(Math.random() * dadResponse.size())) + "";
+        return dadResponse.get((int)(Math.random() * dadResponse.size())) + "\n" + "You are now " + age + year + " old";
 
     }
 
-    if (choice == 3){
+    if (choice.equals("alone")) {
         ArrayList<String> playALone = new ArrayList<String>();
         playALone.add("You get bored and fall asleep on the carpet");
         playALone.add("You have the most fun of your life while playing with action figures!");
         playALone.add("You accidentally break your toy");
-        if (old > 1){
+        age++;
+        if (age > 1) {
             year = " years";
         }
-        return playALone.get((int)(Math.random() * playALone.size()));
+        String outcome= playALone.get((int) (Math.random() * playALone.size()));
+        if (playALone.indexOf(outcome) == 2) {
+            playALone.remove(outcome);
+        }
+
+        return outcome + "\n" + "You are now " + age + year + " old";
     }
-
-
-
 
 return "";
     }
+
+    public String meetNewPeople() {
+
+        ArrayList<String> friendName = new ArrayList<String>();
+        friendName.add("Marcus");
+        friendName.add("Jacob");
+        friendName.add("Sam");
+        String newF = friendName.get((int)(Math.random() * friendName.size()));
+        friendName.remove(friendName.indexOf(newF));
+        friends++;
+        return "You made a new friend!" + "\n" + "His name is " +  newF;
+    }
+
+    public String getFriend(){
+        return "You have " + friends + " friends";
+    }
+
+
 }
