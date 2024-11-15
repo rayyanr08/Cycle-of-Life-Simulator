@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class Activities {
     private int age;
     private int friends;
+    private boolean isAlive;
 
     public Activities(){
     }
@@ -76,8 +77,20 @@ return "";
         return "You made a new friend!" + "\n" + "His name is " +  newF;
     }
 
-    public String getFriend(){
-        return "You have " + friends + " friends";
+    public String getFriend(String isTrue) {
+        if (isTrue.equals("yes")) {
+            return "You have " + friends + " friends";
+        } else {
+            return "Suit yourself.";
+        }
+    }
+
+
+    public String death(){
+        if (isAlive){
+            return "You died " + "\n" + "You were " + age + " years old";
+        }
+        return "";
     }
 
 

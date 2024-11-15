@@ -21,21 +21,52 @@ public class Main {
         System.out.println(person.generateFamily());
         System.out.println(person.getDescription());
 
+
+        Activities user = new Activities();
         // childhood
             System.out.println("As a child, you can interact with your parents or play by yourself");
             Scanner childhood = new Scanner(System.in);
-            Activities user = new Activities();
             for (int i = 0; i < 5; i++) {
                 System.out.println("Type 'mom' to spend time with your mother");
-                System.out.println("Type 'dad' 2 to spend time with your father");
+                System.out.println("Type 'dad' to spend time with your father");
                 System.out.println("Type 'alone' to play with toys by yourself");
                 String choice = childhood.nextLine();
                 System.out.println(user.childhoodActivity(choice));
             }
 
+
+        System.out.println("Now it's time to start school");
+        System.out.println("You can now choose to study, and depending on which subject you choose, you will be asked questions about it");
+        System.out.println("If you get all the questions right, you will become a master at that subject!");
+        System.out.println("Note: You only get two chances to take the test");
+        System.out.println("Doing bad in subjects will affect your ability to get a job in the future");
+        System.out.println("Difficulty of questions will be based on your age");
+
+
+
+
+
+            // teen years
             if(user.getAge() == 13){
-                System.out.println("You are now allowed to ");
+                System.out.println("You are now allowed to meet new people and make friends!");
             }
+            Scanner meetFriend = new Scanner(System.in);
+        System.out.println("Do you want to meet a new person?");
+
+            for (int i = user.getAge(); i<=16; i++)
+            {
+                System.out.println("Do you want to meet new people?");
+                String ifMeet = meetFriend.nextLine();
+                System.out.println(user.meetNewPeople());
+
+            }
+
+        Scanner countFriends = new Scanner(System.in);
+        System.out.println("Type 'yes' to find out how many friends you have or 'no' if you don't want it");
+        String numFriends = countFriends.nextLine();
+        System.out.println(user.getFriend(numFriends));
+
+
 
 
 

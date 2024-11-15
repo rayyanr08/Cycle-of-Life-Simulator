@@ -2,13 +2,12 @@ public class Character {
     private String name;
     private String nationality;
     private String ethnicity;
-    public boolean isAlive;
+
 
 
     public Character (String name){
         this.name = name;
     }
-
 
     // randomly generates nationality for user
     public void generateNationality() {
