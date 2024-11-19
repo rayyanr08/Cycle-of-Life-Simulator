@@ -58,16 +58,16 @@ public class Character {
 
             switch (activity) {
                 case "dangerous sport":
-                    deathChance = 0.1; // 10% chance
+                    deathChance = 0.1; //
                     break;
                 case "adventure":
-                    deathChance = 0.05; // 5% chance
+                    deathChance = 0.05;
                     break;
                 case "bad habit":
-                    deathChance = 0.2; // 20% chance
+                    deathChance = 0.2;
                     break;
                 default:
-                    deathChance = 0.01; // 1% chance for other activities
+                    deathChance = 0.01;
             }
 
             if (Math.random() < deathChance) {

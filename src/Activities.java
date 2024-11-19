@@ -50,17 +50,17 @@ public class Activities {
         }
 
         if (choice.equals("alone")) {
-            ArrayList<String> playALone = new ArrayList<String>();
-            playALone.add("You get bored and fall asleep on the carpet");
-            playALone.add("You have the most fun of your life while playing with action figures!");
-            playALone.add("You accidentally break your toy");
+            ArrayList<String> playAlone = new ArrayList<String>();
+            playAlone.add("You get bored and fall asleep on the carpet");
+            playAlone.add("You have the most fun of your life while playing with action figures!");
+            playAlone.add("You accidentally break your toy");
             age++;
             if (age > 1) {
                 year = " years";
             }
-            String outcome = playALone.get((int) (Math.random() * playALone.size()));
-            if (playALone.indexOf(outcome) == 2) {
-                playALone.remove(outcome);
+            String outcome = playAlone.get((int) (Math.random() * playAlone.size()));
+            if (playAlone.indexOf(outcome) == 2) {
+                playAlone.remove(playAlone.indexOf(outcome));
             }
 
             return outcome + "\n" + "You are now " + age + year + " old";

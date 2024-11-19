@@ -39,9 +39,14 @@ public class Main {
         System.out.println("You can now choose to study, and depending on which subject you choose, you will be asked questions about it");
         System.out.println("If you get all the questions right, you will become a master at that subject!");
         System.out.println("Note: You only get two chances to take the test");
+        System.out.println("Getting one question wrong means you FAIL the test");
         System.out.println("Doing bad in subjects will affect your ability to get a job in the future");
-        System.out.println("Difficulty of questions will be based on your age");
 
+        Scanner studentQuiz = new Scanner(System.in);
+        School tester = new School();
+        System.out.println("What is your answer to number 1?");
+        int num = Integer.parseInt(studentQuiz.nextLine());
+        System.out.println(tester.quiz1Math(num));
 
 
 
@@ -67,6 +72,11 @@ public class Main {
         System.out.println(user.getFriend(numFriends));
 
 
+// job
+
+
+
+        // activities until death
 
 
 
