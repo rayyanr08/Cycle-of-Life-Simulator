@@ -42,11 +42,19 @@ public class Main {
         System.out.println("Getting one question wrong means you FAIL the test");
         System.out.println("Doing bad in subjects will affect your ability to get a job in the future");
 
-        Scanner studentQuiz = new Scanner(System.in);
-        School tester = new School();
-        System.out.println("What is your answer to number 1?");
-        int num = Integer.parseInt(studentQuiz.nextLine());
-        System.out.println(tester.quiz1Math(num));
+        System.out.println("Math Quiz:");
+        School studentQuiz = new School();
+        Scanner userInput = new Scanner(System.in);
+        String[] questions = {"How many thousands are in a million?",  "Which value is the smallest prime number?"};
+
+        Integer[] userAnswers = new Integer[questions.length];
+        for (int i = 0; i < questions.length; i++) {
+            System.out.println(questions[i]);
+            userAnswers[i] = userInput.nextInt(); 
+        }
+
+        String result = studentQuiz.quiz1Math(userAnswers);
+        System.out.println(result);
 
 
 
