@@ -2,7 +2,6 @@ public class Character {
     private String name;
     private String nationality;
     private String ethnicity;
-
     private boolean isAlive;
 
 
@@ -57,20 +56,20 @@ public class Character {
             double deathChance = 0.0;
 
             switch (activity) {
-                case "dangerous sport":
-                    deathChance = 0.1; //
+                case "Climb the empire state building":
+                    deathChance = 0.4; //
                     break;
-                case "adventure":
-                    deathChance = 0.05;
+                case "explore an abandoned cave":
+                    deathChance = 0.3;
                     break;
-                case "bad habit":
+                case "Sit down all day":
                     deathChance = 0.2;
                     break;
                 default:
-                    deathChance = 0.01;
+                    deathChance = 0.1;
             }
 
-            if (Math.random() < deathChance) {
+            if ((int)(Math.random()) < deathChance) {
                 isAlive = false;
                 return true;
             }

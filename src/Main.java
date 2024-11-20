@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -47,10 +48,11 @@ public class Main {
         Scanner userInput = new Scanner(System.in);
         String[] questions = {"How many thousands are in a million?",  "Which value is the smallest prime number?"};
 
-        Integer[] userAnswers = new Integer[questions.length];
+        ArrayList userAnswers = new ArrayList();
         for (int i = 0; i < questions.length; i++) {
             System.out.println(questions[i]);
-            userAnswers[i] = userInput.nextInt(); 
+            userAnswers.add(userInput.nextInt());
+
         }
 
         String result = studentQuiz.quiz1Math(userAnswers);
@@ -60,7 +62,7 @@ public class Main {
 
 
             // teen years
-            if(user.getAge() == 13){
+            if(user.getAge() == 10){
                 System.out.println("You are now allowed to meet new people and make friends!");
             }
             Scanner meetFriend = new Scanner(System.in);
@@ -81,10 +83,12 @@ public class Main {
 
 
 // job
+        System.out.println("You became an adult, so now you have to choose a job. Based on your quiz results you can choose the following jobs");
 
 
 
         // activities until death
+        System.out.println("You can choose from the following activities. All of these activities are dangerous and there is a chance that you will die.");
 
 
 
