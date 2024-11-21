@@ -2,7 +2,6 @@ public class Character {
     private String name;
     private String nationality;
     private String ethnicity;
-    private boolean isAlive;
 
 
     public Character(String name) {
@@ -45,37 +44,4 @@ public class Character {
     }
 
 
-    public boolean getIsAlive() {
-        return isAlive;
-    }
-
-
-
-    public boolean attemptDeath(String activity) {
-        if (isAlive) {
-            double deathChance = 0.0;
-
-            switch (activity) {
-                case "Climb the empire state building":
-                    deathChance = 0.4; //
-                    break;
-                case "explore an abandoned cave":
-                    deathChance = 0.3;
-                    break;
-                case "Sit down all day":
-                    deathChance = 0.2;
-                    break;
-                default:
-                    deathChance = 0.1;
-            }
-
-            if ((int)(Math.random()) < deathChance) {
-                isAlive = false;
-                return true;
-            }
-        }
-        return false;
-
-
-    }
 }
