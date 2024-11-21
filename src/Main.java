@@ -150,6 +150,7 @@ public class Main {
         System.out.println(resultrisky);
         user.addAge();
         System.out.println("Age: " + user.getAge());
+        System.out.println();
 
 
 
