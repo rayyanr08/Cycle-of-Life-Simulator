@@ -80,14 +80,18 @@ public class Activities {
         friendName.add("Marcus");
         friendName.add("Jacob");
         friendName.add("Sam");
+        friendName.add("Andrew");
+        friendName.add("Nathaniel");
+
         String newF = friendName.get((int) (Math.random() * friendName.size()));
         friendName.remove(friendName.indexOf(newF));
-        friends++;
         if (approval.toLowerCase().equals("yes")) {
+            friends++;
             return "You made a new friend!" + "\n" + "His name is " + newF;
-        } else {
-            return "ok";
+        } else if (approval.toLowerCase().equals("no")) {
+        return "ok";
         }
+        return "";
     }
 
     public String getFriend(String isTrue) {
@@ -104,19 +108,19 @@ public class Activities {
 
             switch (activityNum) {
                 case 1:
-                    deathChance = 0.4;
+                    deathChance = 40;
                     break;
                 case 2:
-                    deathChance = 0.3;
+                    deathChance = 30;
                     break;
                 case 3:
-                    deathChance = 0.2;
+                    deathChance = 20;
                     break;
                 default:
-                    deathChance = 0.1;
+                    deathChance = 10;
             }
 
-            if (Math.random() < deathChance) {
+            if ((int)(Math.random() * 100) < deathChance) {
                 isAlive = false;
                 return true;
             }

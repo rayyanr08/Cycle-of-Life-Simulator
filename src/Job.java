@@ -1,10 +1,8 @@
 public class Job {
     private int salary;
     private String title;
-    private String interest;
 
-    public Job(String interest){
-        this.interest = interest;
+    public Job(){
     }
 
     public String jobInterest(String interest){

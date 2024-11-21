@@ -1,7 +1,9 @@
 import java.util.ArrayList;
 
 public class School {
-    private int attempt;
+    private boolean mathOutcome;
+    private boolean scienceOutcome;
+    private boolean englishOutcome;
 
     public School() {
     }
@@ -11,9 +13,13 @@ public class School {
         Integer[] mathAnswers = {1000, 2};
 
 
-        for (int i = 0; i < mathQuestions.length; i++) { // Use correct loop bounds
-            if (!userAns.get(i).equals(mathAnswers[i])) { // Use `.equals()` for comparison
+        for (int i = 0; i < mathQuestions.length; i++) {
+            if (!userAns.get(i).equals(mathAnswers[i])) {
+                mathOutcome = false;
                 return "Incorrect! YOU FAIL";
+            } else {
+                mathOutcome = true;
+                return "YOU PASS";
             }
         }
         return "YOU PASS";
@@ -25,8 +31,10 @@ public class School {
         Integer[] scienceAnswers = {0, 32};
             for (int i = 0; i <= scienceQuestions.length; i++) {
                 if (Integer.valueOf(userAns.get(i)) != Integer.valueOf(scienceAnswers[i])) {
+                    scienceOutcome = false;
                     return "Incorrect! YOU FAIL";
                 } else {
+                    scienceOutcome = true;
                     return "YOU PASS!";
                 }
             }
@@ -40,8 +48,10 @@ public class School {
         if (isTrue) {
             for (int i = 0; i <= englishQuestions.length; i++) {
                 if (userAns.get(i) != englishAnswers[i]) {
+                    englishOutcome = false;
                     return "Incorrect! YOU FAIL";
                 } else {
+                    englishOutcome = true;
                     return "YOU PASS!";
                 }
             }
