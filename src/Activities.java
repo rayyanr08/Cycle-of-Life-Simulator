@@ -4,6 +4,7 @@ public class Activities {
     private int age;
     private int friends;
     private Character character;
+    private boolean isAlive;
 
     public Activities() {
     }
@@ -12,12 +13,16 @@ public class Activities {
         this.age = age;
     }
 
-    public Activities (Character character){
+    public Activities(Character character) {
         this.character = character;
     }
 
     public int getAge() {
         return age;
+    }
+
+    public void addAge() {
+        age++;
     }
 
     public String childhoodActivity(String choice) {
@@ -69,7 +74,7 @@ public class Activities {
         return "";
     }
 
-    public String meetNewPeople() {
+    public String meetNewPeople(String approval) {
 
         ArrayList<String> friendName = new ArrayList<String>();
         friendName.add("Marcus");
@@ -78,7 +83,11 @@ public class Activities {
         String newF = friendName.get((int) (Math.random() * friendName.size()));
         friendName.remove(friendName.indexOf(newF));
         friends++;
-        return "You made a new friend!" + "\n" + "His name is " + newF;
+        if (approval.toLowerCase().equals("yes")) {
+            return "You made a new friend!" + "\n" + "His name is " + newF;
+        } else {
+            return "ok";
+        }
     }
 
     public String getFriend(String isTrue) {
@@ -89,22 +98,46 @@ public class Activities {
         }
     }
 
+    public boolean attemptDeath(int activityNum) {
+        if (isAlive) {
+            double deathChance = 0.0;
+
+            switch (activityNum) {
+                case 1:
+                    deathChance = 0.4;
+                    break;
+                case 2:
+                    deathChance = 0.3;
+                    break;
+                case 3:
+                    deathChance = 0.2;
+                    break;
+                default:
+                    deathChance = 0.1;
+            }
+
+            if (Math.random() < deathChance) {
+                isAlive = false;
+                return true;
+            }
+
+        }
+        return true;
+    }
 
 
-    public String riskyActivity(String choice) {
-        if (!character.getIsAlive()) {
+    public String riskyActivity(int num) {
+        if (!isAlive) {
             return "You are no longer alive and cannot perform activities.";
         }
 
-        String result = "You chose to engage in " + choice + ". ";
-        boolean isDead = character.attemptDeath(choice);
+        boolean isDead = attemptDeath(num);
 
         if (isDead) {
-            return result + "Unfortunately, you died.";
+            return "Unfortunately, you died.";
         } else {
-            return result + "You survived this time.";
+            return "You survived this time.";
         }
-
-
     }
+
 }
