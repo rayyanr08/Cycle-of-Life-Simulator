@@ -7,6 +7,7 @@ public class Activities {
     private boolean isAlive;
 
     public Activities() {
+        isAlive = true;
     }
 
     public Activities(int age) {
@@ -19,6 +20,10 @@ public class Activities {
 
     public int getAge() {
         return age;
+    }
+
+    public String getAgeString(){
+        return "You are " + age + " years old";
     }
 
     public void addAge() {
@@ -87,20 +92,25 @@ public class Activities {
         friendName.remove(friendName.indexOf(newF));
         if (approval.toLowerCase().equals("yes")) {
             friends++;
+            age++;
+
             return "You made a new friend!" + "\n" + "His name is " + newF;
         } else if (approval.toLowerCase().equals("no")) {
+        age++;
         return "ok";
         }
-        return "";
+        age++;
+        return "ok";
     }
 
     public String getFriend(String isTrue) {
         if (isTrue.equals("yes")) {
-            return "You have " + friends + " friends";
+            return "You have " + friends + " friend(s)";
         } else {
             return "Suit yourself.";
         }
     }
+
 
     public boolean attemptDeath(int activityNum) {
         if (isAlive) {

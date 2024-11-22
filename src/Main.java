@@ -45,8 +45,8 @@ public class Main {
         System.out.println("Now it's time to start school");
         System.out.println("You can now choose to study, and depending on which subject you choose, you will be asked questions about it");
         System.out.println("If you get all the questions right, you will become a master at that subject!");
-        System.out.println("Note: You only get two chances to take the test");
-        System.out.println("Getting one question wrong means you FAIL the test");
+        System.out.println("Note: You only get one chances to take the test");
+        System.out.println("Getting the first question OR both questions wrong means you FAIL the test");
         System.out.println("Doing bad in subjects will affect your ability to get a job in the future");
 
 
@@ -75,7 +75,6 @@ public class Main {
         // SCIENCE QUIZ
         System.out.println("Science Quiz:");
         System.out.println("---------------------------------");
-        School studentQuiz2 = new School();
         Scanner userInput2 = new Scanner(System.in);
 
         String[] questionsScience = {"How many bones do sharks have in their body?", "How many teeth does a human adult have?"};
@@ -95,7 +94,6 @@ public class Main {
         // ENGLISH QUIZ
         System.out.println("English Quiz:");
         System.out.println("---------------------------------");
-        School studentQuiz3 = new School();
         Scanner userInput3 = new Scanner(System.in);
 
         String[] questionsEnglish = {"Which year romeo and juliet published in?", "How many lines are in a sonnet?"};
@@ -124,6 +122,7 @@ public class Main {
                 System.out.println("Do you want to meet a new person?");
                 String ifMeet = meetFriend.nextLine();
                 System.out.println(user.meetNewPeople(ifMeet));
+                System.out.println(user.getAgeString());
 
             }
 
@@ -131,20 +130,45 @@ public class Main {
         System.out.println("Type 'yes' to find out how many friends you have or 'no' if you don't want it");
         String numFriends = countFriends.nextLine();
         System.out.println(user.getFriend(numFriends));
+        System.out.println("---------------------------------");
+
+
+        System.out.println("Now it's time to choose a job");
+        System.out.println("Based on the quiz results you had earlier, you will be able to choose a job");
+        Job player = new Job(studentQuiz);
+        if (studentQuiz.getMath()){
+            System.out.println(player.jobInterest("math"));
+        }
+        if (studentQuiz.getScience()){
+            System.out.println(player.jobInterest("medicine"));
+        }
+        if (studentQuiz.getEnglish()){
+            System.out.println(player.jobInterest("Humanities"));
+        }
+        Scanner jobChoice = new Scanner(System.in);
+        System.out.println("---------------------------------");
+        System.out.println("Which job will you choose? (P.S)");
+        System.out.println("Write the EXACT WORD for the job     (Example: doctor, dentist, social worker, math teacher, journalist, etc.");
+        System.out.println("If you don't see any options then you failed every test, meaning you won't be hired. Just write anything");
+        String importantJobChoice = jobChoice.nextLine();
+        player.jobPay(importantJobChoice);
+        System.out.println(player.getSalary());
+        user.addAge();
+        System.out.println(user.getAgeString());
 
 
 
 
         // activities until death
         System.out.println("You can choose from the following activities. All of these activities are dangerous and there is a chance that you will die.");
-        Scanner scanner = new Scanner(System.in);
+        Scanner possibleDeath = new Scanner(System.in);
 
         // Prompt the user for their choice of risky activity
         System.out.println("Enter a risky activity you'd like to attempt:");
-        System.out.println("Type 1 to Climb the empire state building");
+        System.out.println("Type 1 to Climb the tallest building in your area");
         System.out.println("Type 2 to explore an abandoned cave");
         System.out.println("Type 3 to sit down all day");
-        int userChoice = Integer.parseInt(scanner.nextLine());
+        int userChoice = Integer.parseInt(possibleDeath.nextLine());
 
         String resultrisky = user.riskyActivity(userChoice);
         System.out.println(resultrisky);

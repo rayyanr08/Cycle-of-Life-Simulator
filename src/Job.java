@@ -1,20 +1,21 @@
 public class Job {
     private int salary;
-    private String title;
+    private School grades;
 
-    public Job(){
+    public Job(School grades){
+        this.grades = grades;
     }
 
     public String jobInterest(String interest){
-        if (interest.equals("medicine")){
+        if (interest.equals("medicine") && grades.getScience()){
             return "You can be a doctor" + "\n" + "You can be a dentist" + "\n" + "You can be a nurse";
         }
 
-        if (interest.equals("math")){
+        if (interest.equals("math") && grades.getMath()){
             return "You can be a software engineer" + "\n" + "You can be a math teacher" + "\n" + "You can be an accountant";
         }
 
-        if (interest.equals("Humanities")){
+        if (interest.equals("Humanities") && grades.getEnglish()){
             return "You can be a lawyer" + "\n" + "You can be a social worker" + "\n" + "You can become a journalist";
         }
         return "";
@@ -57,7 +58,10 @@ public class Job {
             salary = (int)(Math.random() * 140000);
         }
 
+    }
 
+    public String getSalary(){
+        return "You make " + salary + " per year.";
     }
 
 }
