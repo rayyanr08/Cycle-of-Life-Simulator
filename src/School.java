@@ -42,21 +42,22 @@ public class School {
         }
 
     public String quiz1English(ArrayList<Integer> userAns) {
-        String[] englishQuestions = {"Which year romeo and juliet published in?", "How many lines are in a sonnet?"};
-        Integer[] englishAnswers = {1597, 32};
-        boolean isTrue = true;
-        if (isTrue) {
-            for (int i = 0; i <= englishQuestions.length; i++) {
-                if (userAns.get(i).equals(englishAnswers[i])) {
-                    englishOutcome = true;
-                    return "YOU PASS!";
-                } else {
-                    englishOutcome = true;
-                    return "Incorrect! YOU FAIL";
-                }
+        String[] englishQuestions = {"Which year was Romeo and Juliet published?", "How many lines are in a sonnet?"};
+        Integer[] englishAnswers = {1597, 14}; // Corrected answer for sonnet lines
+        boolean allCorrect = true;
+
+        for (int i = 0; i < englishQuestions.length; i++) { // Use <, not <=
+            if (!userAns.get(i).equals(englishAnswers[i])) {
+                allCorrect = false;
+                break; // No need to check further if one answer is wrong
             }
         }
-        return "";
+
+        if (allCorrect) {
+            return "YOU PASS!";
+        } else {
+            return "Incorrect! YOU FAIL";
+        }
     }
 
     public boolean getMath(){
@@ -74,3 +75,4 @@ public class School {
 
 
 }
+
