@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main {
+public class LifeSimulatorRunner {
     public static void main(String[] args) {
         System.out.println("Welcome to the cycle of life! ");
         System.out.println("---------------------------------");
@@ -180,4 +180,3 @@ public class Main {
 
     }
 }
-
