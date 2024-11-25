@@ -85,7 +85,7 @@ public class Main {
             userAnswersScience.add(userInput2.nextInt());  // Add answers to the correct list
         }
 
-        String resultScience = studentQuiz.quiz1Science(userAnswers);
+        String resultScience = studentQuiz.quiz1Science(userAnswersScience);
         System.out.println(result);
         user.addAge();
         System.out.println("You are now " + user.getAge() + " years old");
@@ -96,24 +96,23 @@ public class Main {
         System.out.println("---------------------------------");
         Scanner userInput3 = new Scanner(System.in);
 
-        String[] questionsEnglish = {"Which year romeo and juliet published in?", "How many lines are in a sonnet?"};
-
+        String[] questionsEnglish = {"Which year was Romeo and Juliet published?", "How many lines are in a sonnet?"};
 
         ArrayList<Integer> userAnswersEnglish = new ArrayList<>();
         for (String question : questionsEnglish) {
             System.out.println(question);
-            userAnswers.add(userInput.nextInt());
+            userAnswersEnglish.add(userInput3.nextInt()); // Correctly add answers to userAnswersEnglish
         }
 
-        String resultEnglish = studentQuiz.quiz1Science(userAnswers);
-        System.out.println(result);
+        String resultEnglish = studentQuiz.quiz1English(userAnswersEnglish); // Pass the correct list
+        System.out.println(resultEnglish);
         user.addAge();
         System.out.println("You are now " + user.getAge() + " years old");
         System.out.println("---------------------------------");
 
 
         // teen years
-            if(user.getAge() == 10){
+            if(user.getAge() == 8){
                 System.out.println("You are now allowed to meet new people and make friends!");
             }
             Scanner meetFriend = new Scanner(System.in);
@@ -181,3 +180,4 @@ public class Main {
 
     }
 }
+
