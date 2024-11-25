@@ -86,7 +86,7 @@ public class LifeSimulatorRunner {
         }
 
         String resultScience = studentQuiz.quiz1Science(userAnswersScience);
-        System.out.println(result);
+        System.out.println(resultScience);
         user.addAge();
         System.out.println("You are now " + user.getAge() + " years old");
         System.out.println("---------------------------------");
@@ -118,7 +118,7 @@ public class LifeSimulatorRunner {
             Scanner meetFriend = new Scanner(System.in);
             for (int i = user.getAge(); i<=16; i++)
             {
-                System.out.println("Do you want to meet a new person?");
+                System.out.println("Do you want to meet a new person? (type 'yes' or 'no')");
                 String ifMeet = meetFriend.nextLine();
                 System.out.println(user.meetNewPeople(ifMeet));
                 System.out.println(user.getAgeString());
@@ -148,7 +148,7 @@ public class LifeSimulatorRunner {
         System.out.println("---------------------------------");
         System.out.println("Which job will you choose? (P.S)");
         System.out.println("Write the EXACT WORD for the job     (Example: doctor, dentist, social worker, math teacher, journalist, etc.");
-        System.out.println("If you don't see any options then you failed every test, meaning you won't be hired. Just write anything");
+        System.out.println("If you don't see any options then you failed every test, meaning you won't be hired. Just write 'nothing'");
         String importantJobChoice = jobChoice.nextLine();
         player.jobPay(importantJobChoice);
         System.out.println(player.getSalary());
@@ -160,21 +160,23 @@ public class LifeSimulatorRunner {
 
         // activities until death
         System.out.println("You can choose from the following activities. All of these activities are dangerous and there is a chance that you will die.");
+        Activities finalStage = new Activities();
         Scanner possibleDeath = new Scanner(System.in);
 
         // Prompt the user for their choice of risky activity
-        System.out.println("Enter a risky activity you'd like to attempt:");
-        System.out.println("Type 1 to Climb the tallest building in your area");
-        System.out.println("Type 2 to explore an abandoned cave");
-        System.out.println("Type 3 to sit down all day");
-        int userChoice = Integer.parseInt(possibleDeath.nextLine());
+        while (finalStage.getIsAlive()) {
+            System.out.println("Enter a risky activity you'd like to attempt:");
+            System.out.println("Type 1 to Climb the tallest building in your area");
+            System.out.println("Type 2 to explore an abandoned cave");
+            System.out.println("Type 3 to work all day");
+            int userChoice = Integer.parseInt(possibleDeath.nextLine());
 
-        String resultrisky = user.riskyActivity(userChoice);
-        System.out.println(resultrisky);
-        user.addAge();
-        System.out.println("Age: " + user.getAge());
-        System.out.println();
-
+            String resultrisky = finalStage.riskyActivity(userChoice);
+            System.out.println(resultrisky);
+            user.addAge();
+            System.out.println("Age: " + user.getAge());
+            System.out.println();
+        }
 
 
 

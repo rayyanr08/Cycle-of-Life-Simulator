@@ -11,52 +11,62 @@ public class School {
     public String quiz1Math(ArrayList<Integer> userAns) {
         String[] mathQuestions = {"How many thousands are in a million?", "Which value is the smallest prime number?"};
         Integer[] mathAnswers = {1000, 2};
+        boolean allCorrect = true;
 
 
-        for (int i = 0; i < mathQuestions.length; i++) {
-            if (userAns.get(i).equals(mathAnswers[i])) {
-                mathOutcome = true;
-                return "YOU PASS";
-            } else {
+        for (int i = 0; i < mathQuestions.length; i++) { // Use <, not <=
+            if (!userAns.get(i).equals(mathAnswers[i])) {
+                allCorrect = false;
                 mathOutcome = false;
-                return "Incorrect! YOU FAIL";
             }
         }
-        return "";
+        if (allCorrect) {
+            mathOutcome = true;
+            return "YOU PASS!";
+        } else {
+            return "You got at least 1 question wrong! YOU FAIL";
+        }
+
     }
 
 
     public String quiz1Science(ArrayList<Integer> userAns) {
         String[] scienceQuestions = {"How many bones do sharks have in their body?", "How many teeth does a human adult have?"};
         Integer[] scienceAnswers = {0, 32};
-            for (int i = 0; i <= scienceQuestions.length; i++) {
-                if (userAns.get(i).equals(scienceAnswers[i])) {
-                    scienceOutcome = true;
-                    return "YOU PASS";
-                } else {
-                    scienceOutcome = false;
-                    return "Incorrect! YOU FAIL";
-                }
+        boolean allCorrect = true;
+
+
+        for (int i = 0; i < scienceQuestions.length; i++) { // Use <, not <=
+            if (!userAns.get(i).equals(scienceAnswers[i])) {
+                allCorrect = false;
+                scienceOutcome = false;
             }
-            return "";
+        }
+        if (allCorrect) {
+            scienceOutcome = true;
+            return "YOU PASS!";
+        } else {
+            return "You got at least 1 question wrong! YOU FAIL";
+        }
         }
 
     public String quiz1English(ArrayList<Integer> userAns) {
         String[] englishQuestions = {"Which year was Romeo and Juliet published?", "How many lines are in a sonnet?"};
-        Integer[] englishAnswers = {1597, 14}; // Corrected answer for sonnet lines
+        Integer[] englishAnswers = {1597, 14};
         boolean allCorrect = true;
 
         for (int i = 0; i < englishQuestions.length; i++) { // Use <, not <=
             if (!userAns.get(i).equals(englishAnswers[i])) {
                 allCorrect = false;
-                break; // No need to check further if one answer is wrong
+                englishOutcome = false;
             }
         }
 
         if (allCorrect) {
+            englishOutcome = true;
             return "YOU PASS!";
         } else {
-            return "Incorrect! YOU FAIL";
+            return "You got at least 1 question wrong! YOU FAIL";
         }
     }
 

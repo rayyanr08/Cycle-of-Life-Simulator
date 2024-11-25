@@ -3,19 +3,10 @@ import java.util.ArrayList;
 public class Activities {
     private int age;
     private int friends;
-    private Character character;
     private boolean isAlive;
 
     public Activities() {
         isAlive = true;
-    }
-
-    public Activities(int age) {
-        this.age = age;
-    }
-
-    public Activities(Character character) {
-        this.character = character;
     }
 
     public int getAge() {
@@ -113,38 +104,29 @@ public class Activities {
 
 
     public boolean attemptDeath(int activityNum) {
-        if (isAlive) {
-            double deathChance = 0.0;
+            int deathChance = 0;
 
-            switch (activityNum) {
-                case 1:
-                    deathChance = 40;
-                    break;
-                case 2:
-                    deathChance = 30;
-                    break;
-                case 3:
-                    deathChance = 20;
-                    break;
-                default:
-                    deathChance = 10;
+            if (activityNum == 1){
+                deathChance = 50;
+            } else if (activityNum == 2) {
+                deathChance = 40;
+            } else if (activityNum == 3) {
+                deathChance = 35;
             }
 
-            if ((int)(Math.random() * 100) < deathChance) {
+            if ((int)(Math.random() * 100) <= deathChance) {
                 isAlive = false;
                 return true;
             }
+        return false;
+    }
 
-        }
-        return true;
+    public boolean getIsAlive(){
+        return isAlive;
     }
 
 
     public String riskyActivity(int num) {
-        if (!isAlive) {
-            return "You are no longer alive and cannot perform activities.";
-        }
-
         boolean isDead = attemptDeath(num);
 
         if (isDead) {
